@@ -28,17 +28,9 @@ This project highlights both analyst skills (data cleaning, visualization, SQL q
 
 ## Visuals
 
-| Price with Moving Average | Distribution of Daily Returns |
+| Price with Moving Average | Buy & Hold vs Model Strategy |
 |---------------------------|-------------------------------|
-| ![Price vs MA](visuals/PriceAndMA.png) | ![Returns Distribution](visuals/Daily Returns.png) |
-
-| Feature Importance (Logistic Regression) | Buy & Hold vs Model Strategy |
-|------------------------------------------|-------------------------------|
-| ![Feature Importance](visuals/Feature Importance LR.png) | ![Buy & Hold](visuals/Buy:Hold.png) |
-
-| Rolling Volatility (20-Day Window) | Cumulative Returns Over Time |
-|-----------------------------------|------------------------------|
-| ![Volatility](visuals/AAPL ADF Test.png) | ![Cumulative Returns](visuals/AAPL Time Series.png) |
+| ![Price vs MA](visuals/PriceAndMA.png) | ![Buy & Hold](visuals/Buy:Hold.png) |
 
 
 ## Example SQL Queries
