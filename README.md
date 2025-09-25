@@ -12,3 +12,54 @@ This repository presents an end-to-end financial data pipeline for analyzing S&P
 -SQL integration to compute risk-return metrics and perform structured analysis on stock performance and volatility.
 
 This project highlights both analyst skills (data cleaning, visualization, SQL queries) and data science capabilities (predictive modeling, feature importance, comparative strategy evaluation).
+
+## Repository Structure
+- `Finance Dashboard Rough Template.ipynb` → Jupyter Notebook with the full analysis pipeline.  
+- `Finance Dashboard Project.sql` → MySQL queries with comments for reproducible analysis.  
+- `visuals/` → Key charts and plots generated during the project.  
+- `requirements.txt` → Python dependencies for reproducibility.  
+- `README.md` → Project documentation.  
+
+## Technologies Used
+- **Python**: pandas, numpy, scikit-learn, matplotlib, statsmodels, yfinance  
+- **SQL**: MySQL with SQLAlchemy for integration  
+- **Visualization**: Matplotlib  
+- **Environment**: Jupyter Notebook  
+
+## Visuals
+
+| Price with Moving Average | Distribution of Daily Returns |
+|---------------------------|-------------------------------|
+| ![Price vs MA](visuals/PriceAndMA.png) | ![Returns Distribution](visuals/Daily Returns.png) |
+
+| Feature Importance (Logistic Regression) | Buy & Hold vs Model Strategy |
+|------------------------------------------|-------------------------------|
+| ![Feature Importance](visuals/Feature Importance LR.png) | ![Buy & Hold](visuals/Buy:Hold.png) |
+
+| Rolling Volatility (20-Day Window) | Cumulative Returns Over Time |
+|-----------------------------------|------------------------------|
+| ![Volatility](visuals/AAPL ADF Test.png) | ![Cumulative Returns](visuals/AAPL Time Series.png) |
+
+
+## Example SQL Queries
+
+```sql
+-- Average daily return by stock
+SELECT Symbol, ROUND(AVG(`Return`), 6) AS avg_return
+FROM sp500_stocks
+GROUP BY Symbol
+ORDER BY avg_return DESC;
+
+-- Volatility ranking
+SELECT Symbol, ROUND(STDDEV_SAMP(`Return`), 6) AS volatility
+FROM sp500_stocks
+GROUP BY Symbol
+ORDER BY volatility DESC;
+
+-- Stock-specific inspection (AAPL)
+SELECT Date, Price, ROUND(`Return`, 6) AS daily_return, 
+       ROUND(MA_20, 6) AS MA_20, ROUND(Vol_20, 6) AS Vol_20
+FROM sp500_stocks
+WHERE Symbol = 'AAPL'
+ORDER BY Date ASC
+LIMIT 20;
