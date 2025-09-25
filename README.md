@@ -54,9 +54,3 @@ FROM sp500_stocks
 WHERE Symbol = 'AAPL'
 ORDER BY Date ASC
 LIMIT 20;
-
-## Future Work
--Add more technical indicators.
--Explore advanced models (XGBoost, LSTM).
--Expand SQL schema into normalized tables (companies, prices, features).
--Build an interactive dashboard (Streamlit or Tableau)
